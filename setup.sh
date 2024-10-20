@@ -8,19 +8,19 @@ RED='\033[0;31m'
 NC='\033[0m' # Không màu
 
 # Hàm in thông báo với màu
-function print_step {
+print_step() {
     echo -e "${CYAN}[INFO]${NC} $1"
 }
 
-function print_success {
+print_success() {
     echo -e "${GREEN}[SUCCESS]${NC} $1"
 }
 
-function print_warning {
+print_warning() {
     echo -e "${YELLOW}[WARNING]${NC} $1"
 }
 
-function print_error {
+print_error() {
     echo -e "${RED}[ERROR]${NC} $1"
 }
 
