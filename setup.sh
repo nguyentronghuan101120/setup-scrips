@@ -34,7 +34,7 @@ print_success "NVM installed successfully."
 print_step "Checking if NodeJS is installed..."
 if command -v node > /dev/null; then
     NODE_VERSION=$(node -v)
-    if [[ "$NODE_VERSION" == v20* ]]; then
+    if [ "$NODE_VERSION" = v20* ]; then
         print_success "NodeJS version $NODE_VERSION is already installed."
     else
         print_warning "NodeJS version $NODE_VERSION is installed, but version 20 is required. Installing NodeJS v20 using NVM..."
