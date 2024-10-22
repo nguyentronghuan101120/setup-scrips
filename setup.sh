@@ -9,19 +9,19 @@ NC='\033[0m' # Không màu
 
 # Hàm in thông báo với màu
 print_step() {
-    echo -e "${CYAN}[          INFO          ]${NC} $1"
+    echo -e "${CYAN}[          INFO          ]${NC} $1\n"
 }
 
 print_success() {
-    echo -e "${GREEN}[      SUCCESS      ]${NC} $1"
+    echo -e "${GREEN}[          SUCCESS          ]${NC} $1\n"
 }
 
 print_warning() {
-    echo -e "${YELLOW}[      WARNING      ]${NC} $1"
+    echo -e "${YELLOW}[          WARNING          ]${NC} $1\n"
 }
 
 print_error() {
-    echo -e "${RED}[      ERROR      ]${NC} $1"
+    echo -e "${RED}[          ERROR          ]${NC} $1\n"
 }
 
 cd ..
