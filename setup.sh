@@ -26,6 +26,10 @@ print_error() {
 
 cd ..
 
+print_step "Installing NVM (Node Version Manager)..."
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+print_success "NVM installed successfully."
+
 # Cài đặt NodeJS
 print_step "Checking if NodeJS is installed..."
 if command -v node > /dev/null; then
@@ -33,13 +37,13 @@ if command -v node > /dev/null; then
     if [[ "$NODE_VERSION" == v20* ]]; then
         print_success "NodeJS version $NODE_VERSION is already installed."
     else
-        print_warning "NodeJS version $NODE_VERSION is installed, but version 20 is required. Installing NodeJS v20..."
-        sudo apt update && sudo apt install -y nodejs
+        print_warning "NodeJS version $NODE_VERSION is installed, but version 20 is required. Installing NodeJS v20 using NVM..."
+        nvm install 20
         print_success "NodeJS v20 installed."
     fi
 else
-    print_step "Installing NodeJS v20..."
-    sudo apt update && sudo apt install -y nodejs
+    print_step "Installing NodeJS v20 using NVM..."
+    nvm install 20
     print_success "NodeJS v20 installed."
 fi
 
