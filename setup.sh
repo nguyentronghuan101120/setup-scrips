@@ -47,12 +47,17 @@ else
 fi
 
 # Clone repository từ GitHub
-print_step "Cloning the project repository..."
-if git clone https://github.com/nguyentronghuan101120/web-game-manager.git; then
-    print_success "Repository cloned."
+print_step "Checking if the project directory already exists..."
+if [ -d "web-game-manager" ] && [ "$(ls -A web-game-manager)" ]; then
+    print_warning "Directory 'web-game-manager' already exists and is not empty. Skipping clone."
 else
-    print_error "Failed to clone repository."
-    exit 1
+    print_step "Cloning the project repository..."
+    if git clone https://github.com/nguyentronghuan101120/web-game-manager.git; then
+        print_success "Repository cloned."
+    else
+        print_error "Failed to clone repository."
+        exit 1
+    fi
 fi
 
 # Chuyển đến thư mục dự án
